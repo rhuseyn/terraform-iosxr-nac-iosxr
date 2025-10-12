@@ -8,7 +8,7 @@ locals {
         key         = "${device.name}-${tag_set.set_name}"
       }
     ]
-    if try(local.device_config[device.name].tag_sets, null) != null || try(local.defaults.iosxr.configuration.tag_sets, null) != null
+    if try(local.device_config[device.name].tag_sets, null) != null && try(local.defaults.iosxr.configuration.tag_sets, null) != null
   ])
 }
 
